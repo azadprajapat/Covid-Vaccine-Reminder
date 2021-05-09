@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "899015275900",
+    "project_id": "covid-vaccine-slot-notifier",
+    "storage_bucket": "covid-vaccine-slot-notifier.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899015275900:android:a6f6f5e0f37195b6f7a0f9",
+        "android_client_info": {
+          "package_name": "com.example.covid_vaccine_notifier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899015275900-ja94fb95idlqb7afj1fbfq9sfag92v6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC39-ANIy6o2RrxllSsAKeHZR4xRs9BUHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "899015275900-ja94fb95idlqb7afj1fbfq9sfag92v6b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899015275900:android:56b290a5aeacf95cf7a0f9",
+        "android_client_info": {
+          "package_name": "com.prajapat.covid_vaccine_notifier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899015275900-ja94fb95idlqb7afj1fbfq9sfag92v6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC39-ANIy6o2RrxllSsAKeHZR4xRs9BUHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "899015275900-ja94fb95idlqb7afj1fbfq9sfag92v6b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
