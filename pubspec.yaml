@@ -31,6 +31,7 @@ dependencies:
   foreground_service: ^2.0.1+1
   flutter_local_notifications: ^5.0.0
   flutter_background: ^1.0.0
+  in_app_update: ^2.0.0
   intl:
   provider: ^5.0.0
   http: ^0.12.2

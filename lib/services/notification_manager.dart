@@ -26,6 +26,7 @@ class NotificationManager{
         channelName, channelName, channelName,
         importance: Importance.max,
         priority: Priority.high,
+        sound: RawResourceAndroidNotificationSound('notification'),
         vibrationPattern: vibration ? vibrationPattern : null,
         enableVibration: vibration);
     var iOSPlatformChannelSpecifics = IOSNotificationDetails();
@@ -39,6 +40,11 @@ class NotificationManager{
       print(ex);
     }
   }
-
+Future<NotificationAppLaunchDetails> notificationAppLaunchDetails()async{
+    await initialize_notification();
+  final NotificationAppLaunchDetails notificationAppLaunchDetails =
+      await plugin.getNotificationAppLaunchDetails();
+    return notificationAppLaunchDetails;
+}
 
 }

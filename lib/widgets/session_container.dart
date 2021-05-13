@@ -71,7 +71,8 @@ class _Session_ContainerState extends State<Session_Container> {
               padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
-                  color: session.seat_availablity==0?Colors.red:Colors.green
+                  color: session.seat_availablity==0?
+                  Theme.of(context).errorColor:Theme.of(context).primaryColor
               ),
               child: Text(session.seat_availablity==0?"Booked":session.seat_availablity.toString()
                 ,style: TextStyle(color: Colors.white,),

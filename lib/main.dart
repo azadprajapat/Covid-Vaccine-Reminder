@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:covid_vaccine_notifier/model/notificationdata.dart';
 import 'package:covid_vaccine_notifier/services/notification_manager.dart';
 import 'package:flutter/material.dart';
@@ -6,28 +8,27 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'my_app.dart';
 import 'package:covid_vaccine_notifier/services/find_slot.dart';
 
-void main() {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
-  runApp( MaterialApp(
+   runApp( MaterialApp(
             theme: ThemeData(
-                primaryColor: Colors.green
+                primaryColor: Colors.green,
+              errorColor: Colors.red,
             ),
             debugShowCheckedModeBanner: false,
-            home: MyApp())
+            home: MyApp(),)
       );
 }
 void maybeStartFGS() async {
      if (!(await ForegroundService.foregroundServiceIsStarted())) {
-
     await ForegroundService.setServiceIntervalSeconds(10);
     await ForegroundService.notification.startEditMode();
-    await ForegroundService.notification.setTitle("Covid Vaccine notifier");
-    await ForegroundService.notification.setText("Covid Vaccine slot finder started running in background");
+    await ForegroundService.notification.setTitle("COVAC HELPER");
+    await ForegroundService.notification.setText("Notification reminder is active");
     await ForegroundService.notification.finishEditMode();
     await ForegroundService.startForegroundService(foregroundServiceFunction);
-    await ForegroundService.setContinueRunningAfterAppKilled(true);
-    await ForegroundService.getWakeLock();
+     await ForegroundService.getWakeLock();
   }
   await ForegroundService.setupIsolateCommunication((data) {
     debugPrint("main received: $data");
@@ -39,7 +40,7 @@ void maybeStartFGS() async {
   bool slot_status = notificationModal.founded;
     if (slot_status) {
      await NotificationManager().initialize_notification();
-      await NotificationManager().newNotification("${notificationModal.capacity} slots founded for Age ${notificationModal.age}+", "Hurry Up Book Fast !!", true);
+      await NotificationManager().newNotification("COVAC HELPER", "${notificationModal.capacity} slots founded for Age ${notificationModal.age}+ Book Fast !!", true);
        if (!ForegroundService.isIsolateCommunicationSetup) {
         ForegroundService.setupIsolateCommunication((data) {
           debugPrint("bg isolate received: $data");

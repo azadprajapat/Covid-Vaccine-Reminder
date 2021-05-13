@@ -40,7 +40,7 @@ class _CenterCardState extends State<CenterCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      widget.modal.name,
+                      widget.modal.name.length<25?widget.modal.name:widget.modal.name.substring(0,25)+"...",
                       style: TextStyle(
                           color: Colors.blue,
                           fontSize: 18,
@@ -48,7 +48,7 @@ class _CenterCardState extends State<CenterCard> {
                     ),
                     SizedBox(height: 3,),
                     Text(
-                      widget.modal.address,
+                      widget.modal.address.length<35?widget.modal.address:widget.modal.address.substring(0,35)+"...",
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 14,

@@ -6,9 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class BannerAdWidget extends StatefulWidget {
-  BannerAdWidget(this.size);
+  BannerAdWidget(this.size,this.id);
 
   final AdSize size;
+  final id;
 
   @override
   State<StatefulWidget> createState() => BannerAdState();
@@ -22,7 +23,7 @@ class BannerAdState extends State<BannerAdWidget> {
   void initState() {
     super.initState();
     _bannerAd = BannerAd(
-      adUnitId: AdHelper.bannerAdUnitId,
+      adUnitId: widget.id,
       request: AdRequest(),
       size: widget.size,
       listener: AdListener(
@@ -66,14 +67,13 @@ class BannerAdState extends State<BannerAdWidget> {
             if (snapshot.hasData) {
               child = AdWidget(ad: _bannerAd);
             } else {
-              child = Text('Error loading $BannerAd');
+              child = Container();
             }
         }
-
         return Container(
           width: _bannerAd.size.width.toDouble(),
           height: _bannerAd.size.height.toDouble(),
-          color: Colors.white,
+          color: Colors.transparent,
           child: child,
         );
       },

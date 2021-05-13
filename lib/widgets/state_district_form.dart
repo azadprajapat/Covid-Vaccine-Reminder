@@ -30,8 +30,11 @@ class _StateDistrictFormState extends State<StateDistrictForm> {
   }
   @override
   Widget build(BuildContext context) {
-    return _fetching?Center(child: CircularProgressIndicator()):Container(
+    return _fetching?Center(child: CircularProgressIndicator(
+      backgroundColor: Theme.of(context).primaryColor,
+    )):Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
         DropdownButton<String>(
         value: _state_chosenValue,
