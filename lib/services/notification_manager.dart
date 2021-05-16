@@ -46,5 +46,4 @@ Future<NotificationAppLaunchDetails> notificationAppLaunchDetails()async{
       await plugin.getNotificationAppLaunchDetails();
     return notificationAppLaunchDetails;
 }
-
 }

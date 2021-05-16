@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'file:///E:/AndroidStudioProjects/ACA/covid_vaccine_notifier/lib/widgets/ad_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';

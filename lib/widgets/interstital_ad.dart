@@ -5,7 +5,7 @@ import 'ad_helper.dart';
 class Interstitial_Ad {
   bool _interstitialReady = false;
 
-  void initialize_ad(_interstitialAd, bool delayed) {
+  void initialize_ad(_interstitialAd, bool delayed,bool repeat) {
     MobileAds.instance.initialize().then((InitializationStatus status) {
       print('Initialization done: ${status.adapterStatuses}');
       MobileAds.instance
@@ -13,12 +13,12 @@ class Interstitial_Ad {
               tagForChildDirectedTreatment:
                   TagForChildDirectedTreatment.unspecified))
           .then((void value) {
-        createInterstitialAd(_interstitialAd, delayed);
+        createInterstitialAd(_interstitialAd, delayed,repeat);
       });
     });
   }
 
-  void createInterstitialAd(_interstitialAd, delayed) {
+  void createInterstitialAd(_interstitialAd, delayed,bool repeat) {
     _interstitialAd ??= InterstitialAd(
       adUnitId: AdHelper.interstitialAdUnitId,
       request: AdRequest(),
@@ -29,7 +29,7 @@ class Interstitial_Ad {
           if (!delayed) {
             _interstitialAd.show();
           } else {
-            Future.delayed(Duration(minutes: 2), () {
+            Future.delayed(Duration(minutes: 1,seconds: 30), () {
               _interstitialAd.show();
             });
           }
@@ -38,14 +38,16 @@ class Interstitial_Ad {
           print('${ad.runtimeType} failed to load: $error.');
           ad.dispose();
           _interstitialAd = null;
-          createInterstitialAd(_interstitialAd, delayed);
+          createInterstitialAd(_interstitialAd, delayed,repeat);
         },
         onAdOpened: (Ad ad) => print('${ad.runtimeType} onAdOpened.'),
         onAdClosed: (Ad ad) async {
           print('${ad.runtimeType} closed.');
           ad.dispose();
-          createInterstitialAd(_interstitialAd, delayed);
-        },
+          if(repeat) {
+            createInterstitialAd(_interstitialAd, delayed, repeat);
+          }
+          },
         onApplicationExit: (Ad ad) =>
             print('${ad.runtimeType} onApplicationExit.'),
       ),
